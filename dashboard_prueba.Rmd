@@ -1,0 +1,418 @@
+---
+title: "Dengue en México"
+author: "EJY"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    source_code: embed
+---
+
+```{r setup, include=FALSE}
+pacman::p_load(
+  tidyverse,       # data management and visualization
+  flexdashboard,   # dashboard versions of R Markdown reports
+  stats,
+  psych,
+  sf,            # to manage spatial data using a Simple Feature format
+  tmap,          # to produce simple maps, works for both interactive and 
+  OpenStreetMap # to add OSM basemap in ggplot map
+)
+tmap_mode("view")        
+base_mapeo<-read_csv("BASE_TABLERO_DENGUE_2020_2021.csv",
+                                col_types = cols(X1 = col_skip())) %>% 
+  mutate(INC_ACUM=as.character(INC_ACUM),
+         TASA_MORT=as.character(TASA_MORT),
+         PORCENTAJE_POSITIVIDAD=as.character(PORCENTAJE_POSITIVIDAD),
+         SERO_1=as.character(SERO_1),
+         SERO_2=as.character(SERO_2),
+         SERO_3=as.character(SERO_3),
+         SERO_4=as.character(SERO_4),
+         INC_ACUM_2021=as.character(INC_ACUM_2021),
+         TASA_MORT_2021=as.character(TASA_MORT_2021),
+         PORCENTAJE_POSITIVIDAD_2021=as.character(PORCENTAJE_POSITIVIDAD_2021),
+         SERO_1_2021=as.character(SERO_1_2021),
+         SERO_2_2021=as.character(SERO_2_2021),
+         SERO_3_2021=as.character(SERO_3_2021),
+         SERO_4_2021=as.character(SERO_4_2021)) %>% 
+  mutate(INC_ACUM=gsub("0",NA,INC_ACUM),
+         TASA_MORT=gsub("0",NA,TASA_MORT),
+         PORCENTAJE_POSITIVIDAD=gsub("0",NA,PORCENTAJE_POSITIVIDAD),
+         SERO_1=gsub("0",NA,SERO_1),
+         SERO_2=gsub("0",NA,SERO_2),
+         SERO_3=gsub("0",NA,SERO_3),
+         SERO_4=gsub("0",NA,SERO_4),
+         INC_ACUM_2021=gsub("0",NA,INC_ACUM_2021),
+         TASA_MORT_2021=gsub("0",NA,TASA_MORT_2021),
+         PORCENTAJE_POSITIVIDAD_2021=gsub("0",NA,PORCENTAJE_POSITIVIDAD_2021),
+         SERO_1_2021=gsub("0",NA,SERO_1_2021),
+         SERO_2_2021=gsub("0",NA,SERO_2_2021),
+         SERO_3_2021=gsub("0",NA,SERO_3_2021),
+         SERO_4_2021=gsub("0",NA,SERO_4_2021)) %>% 
+  mutate(INC_ACUM=as.numeric(INC_ACUM),
+         TASA_MORT=as.numeric(TASA_MORT),
+         PORCENTAJE_POSITIVIDAD=as.numeric(PORCENTAJE_POSITIVIDAD),
+         SERO_1=as.numeric(SERO_1),
+         SERO_2=as.numeric(SERO_2),
+         SERO_3=as.numeric(SERO_3),
+         SERO_4=as.numeric(SERO_4),
+         INC_ACUM_2021=as.numeric(INC_ACUM_2021),
+         TASA_MORT_2021=as.numeric(TASA_MORT_2021),
+         PORCENTAJE_POSITIVIDAD_2021=as.numeric(PORCENTAJE_POSITIVIDAD_2021),
+         SERO_1_2021=as.numeric(SERO_1_2021),
+         SERO_2_2021=as.numeric(SERO_2_2021),
+         SERO_3_2021=as.numeric(SERO_3_2021),
+         SERO_4_2021=as.numeric(SERO_4_2021),
+         VUL1_E=as.numeric(VUL1_E)) 
+riesgo_bajo<-base_mapeo %>% 
+  filter(INC_ACUM_GPO=="Baja")
+riesgo_medio<-base_mapeo %>% 
+  filter(INC_ACUM_GPO=="Media")
+riesgo_alto<-base_mapeo %>% 
+  filter(INC_ACUM_GPO=="Alta")
+riesgo_muyalto<-base_mapeo %>% 
+  filter(INC_ACUM_GPO=="Muy alta")
+shape_file<-read_sf("Dengue_DatosAbiertos/VUL_AH_DEN_E.shp") %>%
+  select(Clave_municipio=Clave_Mpo,Nombre_Edo,Nombre_Mpo,geometry)
+base_mapeo<-left_join(base_mapeo,shape_file,by="Clave_municipio") %>% 
+  drop_na(geometry) %>% 
+  select(Nombre_Mpo, everything())
+```
+
+Principal {data-icon="fa-home"}
+=====================================
+
+PANORAMA EPIDEMIOLÓGICO DE DENGUE 2020
+===
+
+
+Row
+---
+
+### INCIDENCIA ACUMULADA DE DENGUE EN 2020
+```{r}
+base_mapeo %>% 
+  drop_na(INC_ACUM) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("INC_ACUM"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+
+Row
+---
+
+### TASA DE MORTALIDAD DE DENGUE 2020
+```{r}
+base_mapeo %>% 
+  drop_na(TASA_MORT) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("TASA_MORT"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+
+Row
+---
+### INDICE DE POSITIVIDAD DE DENGUE 2020
+```{r}
+base_mapeo %>% 
+  drop_na(PORCENTAJE_POSITIVIDAD) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("PORCENTAJE_POSITIVIDAD"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+PANORAMA SEROLÓGICO DE DENGUE 2020
+====
+
+Row
+---
+
+
+### CASOS DE DENGUEVIRUS 1
+```{r}
+base_mapeo %>% 
+  drop_na(SERO_1) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("SERO_1"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+
+Row
+---
+
+### CASOS DE DENGUEVIRUS 2
+```{r}
+base_mapeo %>% 
+  drop_na(SERO_2) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("SERO_2"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+
+Row
+---
+
+### CASOS DE DENGUEVIRUS 3
+```{r}
+base_mapeo %>% 
+  drop_na(SERO_3) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("SERO_3"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+### CASOS DE DENGUEVIRUS 4
+```{r}
+base_mapeo %>% 
+  drop_na(SERO_4) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("SERO_4"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+PANORAMA EPIDEMIOLÓGICO DE DENGUE 2021
+====
+
+Row
+---
+
+
+### INCIDENCIA ACUMULADA DE DENGUE EN 2021
+```{r}
+base_mapeo %>% 
+  drop_na(INC_ACUM_2021) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("INC_ACUM_2021"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+
+Row
+---
+
+### TASA DE MORTALIDAD DE DENGUE 2021
+```{r}
+base_mapeo %>% 
+  drop_na(TASA_MORT_2021) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("TASA_MORT_2021"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+
+Row
+---
+
+### INDICE DE POSITIVIDAD DE DENGUE 2021
+```{r}
+base_mapeo %>% 
+  drop_na(PORCENTAJE_POSITIVIDAD_2021) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("PORCENTAJE_POSITIVIDAD_2021"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+PANORAMA SEROLÓGICO DE DENGUE 2021
+====
+
+Row
+---
+
+
+### CASOS DE DENGUEVIRUS 1
+```{r}
+base_mapeo %>% 
+  drop_na(SERO_1_2021) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("SERO_1_2021"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+
+Row
+---
+
+### CASOS DE DENGUEVIRUS 2
+```{r}
+base_mapeo %>% 
+  drop_na(SERO_2_2021) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("SERO_2_2021"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+
+Row
+---
+
+### CASOS DE DENGUEVIRUS 3
+```{r}
+base_mapeo %>% 
+  drop_na(SERO_3_2021) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("SERO_3_2021"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+### CASOS DE DENGUEVIRUS 3
+```{r}
+base_mapeo %>% 
+  drop_na(SERO_3_2021) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("SERO_3_2021"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+### CASOS DE DENGUEVIRUS 4
+```{r}
+base_mapeo %>% 
+  drop_na(SERO_4_2021) %>% 
+  st_as_sf() %>% 
+  tm_shape() + 
+  tm_polygons(c("SERO_4_2021"),alpha=0.9)+
+  tm_borders() +
+  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
+```
+
+CORRELACIÓN INCIDENCIA DENGUE 2020/VULNERABILIDAD DENGUE
+====
+
+Row
+---
+
+### RIESGO BAJO Y VULNERABILIAD PARA DENGUE
+
+```{r}
+
+scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$VUL1_E),method = "spearman")
+```
+
+
+### RIESGO MEDIO Y VULNERABILIAD PARA DENGUE
+```{r}
+scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$VUL1_E),method = "spearman")
+```
+
+Row
+---
+
+### RIESGO ALTO Y VULNERABILIAD PARA DENGUE
+```{r}
+
+scatter.hist((riesgo_alto$INC_ACUM_ESTR),(riesgo_alto$VUL1_E),method = "spearman")
+```
+
+
+### RIESGO MUY ALTO Y VULNERABILIAD PARA DENGUE
+```{r}
+
+scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$VUL1_E),method = "spearman")
+```
+
+CORRELACIÓN INCIDENCIA DENGUE 2020/MARGINACIÓN
+====
+
+Row
+---
+
+### RIESGO BAJO E ÍNDICE DE MARGINACIÓN
+```{r}
+scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$INDICE_MARG),method = "spearman")
+```
+
+
+### RIESGO MEDIO E ÍNDICE DE MARGINACIÓN
+```{r}
+scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$INDICE_MARG),method = "spearman")
+```
+
+Row
+---
+
+### RIESGO ALTO E ÍNDICE DE MARGINACIÓN
+```{r}
+scatter.hist((riesgo_alto$INC_ACUM_ESTR),(riesgo_alto$INDICE_MARG),method = "spearman")
+```
+
+
+### RIESGO MUY ALTO E ÍNDICE DE MARGINACIÓN
+```{r}
+scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$INDICE_MARG),method = "spearman")
+```
+
+CORRELACIÓN INCIDENCIA DENGUE 2020/REZAGO
+====
+
+Row
+---
+
+### RIESGO BAJO E ÍNDICE DE REZAGO
+```{r}
+scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$INDICE_REZAGO),method = "spearman")
+```
+
+
+### RIESGO MEDIO E ÍNDICE DE REZAGO
+```{r}
+scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$INDICE_REZAGO),method = "spearman")
+```
+
+Row
+---
+
+### RIESGO ALTO E ÍNDICE DE REZAGO
+```{r}
+scatter.hist((riesgo_alto$INC_ACUM_ESTR),(riesgo_alto$INDICE_REZAGO),method = "spearman")
+```
+
+
+### RIESGO MUY ALTO E ÍNDICE DE REZAGO
+```{r}
+scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$INDICE_REZAGO),method = "spearman")
+```
+
+<style>
+.navbar {
+margin: 0;
+padding: 0;
+height: 100%;
+display: block;
+position: fixed;
+width: 200px;
+}
+body {
+margin-left: 200px; /* Add a left margin to     avoid content overlay */
+padding-top:0px
+}
+</style>
