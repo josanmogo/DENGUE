@@ -1,5 +1,6 @@
 library(tidyverse)
 library(readxl)
+source("FUNCION DESCARGAR BASE.R")
 
 datos2021<-read_excel("pob_2021.xlsx") %>% 
   select(ENTIDAD=clave_ent,MUNICIPIO=mun,POB_TOTAL_2021=pob) %>% 
@@ -11,9 +12,10 @@ datos2021<-read_excel("pob_2021.xlsx") %>%
     na.rm = TRUE                  # if TRUE, missing values are removed before uniting
   )
 
+funcion_descargar_dengue()
 
 #AGREGAR DATOS DENGUE 2021####
-dengue_2021<-read.csv("Datos abiertos dengue_211021.csv") %>% 
+dengue_2021<-read.csv("dengue_2021.csv") %>% 
   select(SEXO,EDAD=EDAD_ANOS,ENTIDAD=ENTIDAD_RES,ENTIDAD_ASIG,MUNICIPIO=MUNICIPIO_RES,INDIGENA,HABLA_LENGUA_INDIG,
          FECHA_SIGN_SINTOMAS,TIPO_PACIENTE,DEFUNCION,RESULTADO_PCR,ESTATUS_CASO) %>% 
   filter(ENTIDAD<=32) %>% 
