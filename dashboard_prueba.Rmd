@@ -275,17 +275,6 @@ Row
 ### CASOS DE DENGUEVIRUS 3
 ```{r}
 base_mapeo %>% 
-  drop_na(SERO_3_2021) %>% 
-  st_as_sf() %>% 
-  tm_shape() + 
-  tm_polygons(c("SERO_3_2021"),alpha=0.9)+
-  tm_borders() +
-  tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
-```
-
-### CASOS DE DENGUEVIRUS 3
-```{r}
-base_mapeo %>% 
   drop_na(SERO_4_2021) %>% 
   st_as_sf() %>% 
   tm_shape() + 
@@ -293,7 +282,8 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+Row
+---
 ### CASOS DE DENGUEVIRUS 4
 ```{r}
 base_mapeo %>% 
