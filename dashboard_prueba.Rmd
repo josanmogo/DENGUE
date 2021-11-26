@@ -71,7 +71,7 @@ riesgo_alto<-base_mapeo %>%
   filter(INC_ACUM_GPO=="Alta")
 riesgo_muyalto<-base_mapeo %>% 
   filter(INC_ACUM_GPO=="Muy alta")
-shape_file<-read_sf("Dengue_DatosAbiertos/VUL_AH_DEN_E.shp") %>%
+shape_file<-read_sf("VUL_AH_DEN_E.shp") %>%
   select(Clave_municipio=Clave_Mpo,Nombre_Edo,Nombre_Mpo,geometry)
 base_mapeo<-left_join(base_mapeo,shape_file,by="Clave_municipio") %>% 
   drop_na(geometry) %>% 
