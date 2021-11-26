@@ -1,6 +1,5 @@
 library(tidyverse)
 library(readxl)
-library(stratification)
 
 datos2021<-read_excel("pob_2021.xlsx") %>% 
   select(ENTIDAD=clave_ent,MUNICIPIO=mun,POB_TOTAL_2021=pob) %>% 
