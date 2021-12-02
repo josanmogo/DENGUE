@@ -1,6 +1,6 @@
 ---
 title: "Dengue en México"
-author: "EJY"
+author: "EJYA"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
@@ -80,6 +80,17 @@ base_mapeo<-left_join(base_mapeo,shape_file,by="Clave_municipio") %>%
 
 Principal {data-icon="fa-home"}
 =====================================
+Row
+---
+### Objetivo 
+### metología bla bla
+Row
+---
+Fotos de colaboradores
+### Yoli
+### José
+### Lalo
+### Alan
 
 PANORAMA EPIDEMIOLÓGICO DE DENGUE 2020
 ===
@@ -98,7 +109,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 Row
 ---
@@ -113,7 +124,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 Row
 ---
@@ -127,6 +138,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 PANORAMA SEROLÓGICO DE DENGUE 2020
 ====
@@ -145,10 +157,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
-
-Row
----
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 ### CASOS DE DENGUEVIRUS 2
 ```{r}
@@ -160,7 +169,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 Row
 ---
@@ -175,6 +184,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 ### CASOS DE DENGUEVIRUS 4
 ```{r}
@@ -186,13 +196,13 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 PANORAMA EPIDEMIOLÓGICO DE DENGUE 2021
 ====
 
 Row
 ---
-
 
 ### INCIDENCIA ACUMULADA DE DENGUE EN 2021
 ```{r}
@@ -204,7 +214,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
 Row
 ---
@@ -219,7 +229,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
 Row
 ---
@@ -234,6 +244,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
 PANORAMA SEROLÓGICO DE DENGUE 2021
 ====
@@ -252,10 +263,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
-
-Row
----
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
 ### CASOS DE DENGUEVIRUS 2
 ```{r}
@@ -267,7 +275,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
 Row
 ---
@@ -282,8 +290,8 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-Row
----
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
+
 ### CASOS DE DENGUEVIRUS 4
 ```{r}
 base_mapeo %>% 
@@ -294,6 +302,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
 CORRELACIÓN INCIDENCIA DENGUE 2020/VULNERABILIDAD DENGUE
 ====
@@ -307,12 +316,13 @@ Row
 
 scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$VUL1_E),method = "spearman")
 ```
-
+DESCRIPCIÓN
 
 ### RIESGO MEDIO Y VULNERABILIAD PARA DENGUE
 ```{r}
 scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$VUL1_E),method = "spearman")
 ```
+DESCRIPCIÓN
 
 Row
 ---
@@ -322,13 +332,14 @@ Row
 
 scatter.hist((riesgo_alto$INC_ACUM_ESTR),(riesgo_alto$VUL1_E),method = "spearman")
 ```
-
+DESCRIPCIÓN
 
 ### RIESGO MUY ALTO Y VULNERABILIAD PARA DENGUE
 ```{r}
 
 scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$VUL1_E),method = "spearman")
 ```
+DESCRIPCIÓN
 
 CORRELACIÓN INCIDENCIA DENGUE 2020/MARGINACIÓN
 ====
@@ -340,13 +351,13 @@ Row
 ```{r}
 scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$INDICE_MARG),method = "spearman")
 ```
-
+DESCRIPCIÓN
 
 ### RIESGO MEDIO E ÍNDICE DE MARGINACIÓN
 ```{r}
 scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$INDICE_MARG),method = "spearman")
 ```
-
+DESCRIPCIÓN
 Row
 ---
 
@@ -354,13 +365,13 @@ Row
 ```{r}
 scatter.hist((riesgo_alto$INC_ACUM_ESTR),(riesgo_alto$INDICE_MARG),method = "spearman")
 ```
-
+DESCRIPCIÓN
 
 ### RIESGO MUY ALTO E ÍNDICE DE MARGINACIÓN
 ```{r}
 scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$INDICE_MARG),method = "spearman")
 ```
-
+DESCRIPCIÓN
 CORRELACIÓN INCIDENCIA DENGUE 2020/REZAGO
 ====
 
@@ -371,13 +382,13 @@ Row
 ```{r}
 scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$INDICE_REZAGO),method = "spearman")
 ```
-
+DESCRIPCIÓN
 
 ### RIESGO MEDIO E ÍNDICE DE REZAGO
 ```{r}
 scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$INDICE_REZAGO),method = "spearman")
 ```
-
+DESCRIPCIÓN
 Row
 ---
 
@@ -385,12 +396,13 @@ Row
 ```{r}
 scatter.hist((riesgo_alto$INC_ACUM_ESTR),(riesgo_alto$INDICE_REZAGO),method = "spearman")
 ```
-
+DESCRIPCIÓN
 
 ### RIESGO MUY ALTO E ÍNDICE DE REZAGO
 ```{r}
 scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$INDICE_REZAGO),method = "spearman")
 ```
+DESCRIPCIÓN
 
 <style>
 .navbar {
