@@ -82,20 +82,34 @@ Principal {data-icon="fa-home"}
 =====================================
 Row
 ---
-El dengue ha sido una carga de morbilidad continua en M?xico y un problema de salud p?blica, el 60% del territorio nacional presenta condiciones favorables para la proliferaci?n del dengue. 
-Para el control efectivo del dengue, se requieren propuestas integrales que incorporen factores ambientales y sociales en el manejo del vector. Las pol?ticas y los programas efectivos, los mecanismos de financiamiento y la cooperaci?n en todos los sectores y la poblaci?n son esenciales en la erradicaci?n de esta enfermedad.
-El mapeo de la vulnerabilidad al dengue utilizando tecnolog?a geoespacial parece ser un medio eficaz para apoyar a las autoridades de salud p?blica en el control e intervenci?n de enfermedades.
-### Objetivo 
-Representar geogr?ficamente las influencias socioambientales, los factores clim?ticos y demogr?ficos sobre la vulnerabilidad al dengue, utilizando el ?ndice de rezago, marginaci?n y vulnerabilidad, as? como las tasas de incidencia acumulada de casos de dengue para determinar zonas donde exista una correlaci?n positiva en los diferentes municipios de M?xico con el fin de explicar las diferencias en la transmisi?n del dengue y evaluar los peligros para la salud relacionados con el cambio clim?tico. 
+El dengue ha sido una carga de morbilidad continua en México y un problema de salud pública, el 60% del territorio nacional presenta condiciones favorables para la proliferación de los casos de dengue. 
 
-### metologÃ­a bla bla
+Para el control efectivo del dengue, se requieren propuestas integrales que incorporen factores ambientales y sociales en el manejo del vector. Las políticas, los programas efectivos, los mecanismos de financiamiento y la cooperación en todos los sectores y la población son esenciales en la erradicación de esta enfermedad.
+
+El mapeo de la vulnerabilidad al dengue utilizando tecnología geoespacial parece ser un medio eficaz para apoyar a las autoridades de salud pública en el control e intervención de enfermedades.
+
+### Objetivo 
+Representar geográficamente las influencias socioambientales, los factores climáticos y demográficos sobre la vulnerabilidad al dengue, utilizando el índice de rezago, marginación y vulnerabilidad, así como las tasas de incidencia acumulada de casos de dengue para determinar zonas donde exista una correlación positiva en los diferentes municipios de México con el fin de explicar las diferencias en la transmisión del dengue y evaluar los peligros para la salud relacionados con el cambio climático.
+
+### Metodología
+
+Para analizar los datos para visualizar patrones y correlaciones entre las diferentes variables se integró una base general de datos con variables seleccionadas de seis bases de origen: base de datos abiertos de dengue durante el periodo 2020 y 2021 (hasta la semana epidemiológica 30), población del 2020 del censo de población del 2020, proyección de población del 2021, índice de marginación, índice de rezago e índice de vulnerabilidad al dengue, todas desagregadas por municipios.
+
+Se realizó estratificación de la incidencia acumulada para 2020 con el método Dalenius-Hodges, que consiste en la formación de estratos de manera que la varianza obtenida sea la mínima al interior de cada estrato y la máxima entre cada uno de ellos integrando cuatro grupos: riesgo bajo, muy bajo, alto y muy alto. (agregar valores de corte para cada grupo)
+
+Se produjeron mapas anuales de la incidencia acumulada, mortalidad, índice de positividad y casos de acuerdo al serotipo de dengue por municipios.
+
+Se produjeron gráficas de correlación de Spearman con la incidencia acumulada estratificada del dengue en 2020 contra el índice de rezago, marginación y vulnerabilidad al dengue para examinar la fuerza y la dirección de la relación entre las dos variables correspondientes. El valor del coeficiente de correlación puede variar de ???1 a +1. Mientras mayor sea el valor absoluto del coeficiente, más fuerte será la relación entre las variables.
+
+
+
 Row
 ---
 Fotos de colaboradores
-### Yoli
-### JosÃ©
-### Lalo
-### Alan
+### José Antonio Montes González. Residente de primer año
+### Eduardo Padilla González. Residente de primer año
+### Evelin Yolitzi Hernández Olvera. Residente de primer año
+### Allan Zambrano
 
 PANORAMA EPIDEMIOLÃ“GICO DE DENGUE 2020
 ===
@@ -314,6 +328,11 @@ CORRELACIÃ“N INCIDENCIA DENGUE 2020/VULNERABILIDAD DENGUE
 
 Row
 ---
+El índice de vulnerabilidad al cambio climático intenta determinar el grado en que los sistemas pueden verse afectados adversamente por el cambio climático, dependiendo de si éstos son capaces o incapaces de afrontar los impactos negativos del cambio climático, incluyendo la variabilidad climática y los eventos extremos. 
+
+El índice de vulnerabilidad de la población al incremento en la distribución potencial del dengue 
+se compone de los indicadores de exposición, sensibilidad y capacidad adaptativa; donde la exposición describe las condiciones que conducen a la supervivencia y transmisión del dengue en el medio ambiente (por ejemplo, precipitaciones y temperatura). La sensibilidad describe la susceptibilidad de una población al dengue debido al potencial de criaderos relacionado con la urbanización y crecimiento poblacional, además de la cercanía a cuerpos de agua, susceptibilidad a inundaciones, así como la disponibilidad de agua y acumulación de residuos sólidos. La capacidad adaptativa se refiere a la capacidad de prevenir, responder y hacer frente a la enfermedad.
+
 
 ### RIESGO BAJO Y VULNERABILIAD PARA DENGUE
 
@@ -352,6 +371,11 @@ CORRELACIÃ“N INCIDENCIA DENGUE 2020/MARGINACIÃ“N
 Row
 ---
 
+El índice de marginación desarrollado por la CONAPO permite identificar, por áreas geográficas, la intensidad de las privaciones y exclusión social de la población, y por tanto, las desventajas relativas que enfrenta una población como producto de su situación geográfica, económica y social, como resultado de falta de acceso a la educación, residencia en viviendas inadecuadas, ingresos monetarios insuficientes y residencia en localidades pequeñas. Se utiliza en México para establecer jerarquías entre las unidades territoriales, ubicándolas dentro de alguno de los cinco intervalos de marginación siguientes, de acuerdo con la Técnica de Estratificación Óptima de Dalenius y Hodges: muy bajo (-1.52944, -1.15143); bajo (-1.15143, -0.39539); medio (-0.39539, -0.01738); alto (-0.01738, 0.73866); y muy alto (0.73866, 2.25073); según la intensidad de las carencias estructurales y, de este modo, ofrece un criterio sólido para priorizar acciones de política social en los distintos niveles de gobierno. No es comparable a nivel internacional. Se calcula cada 5 años. 
+
+Se construye mediante el método de componentes principales, a partir de nueve indicadores de exclusión social expresados en forma de porcentaje: población analfabeta de 15 años o más; población sin primaria completa de 15 años o más; ocupantes en viviendas particulares sin agua entubada; ocupantes en viviendas particulares sin drenaje ni servicio sanitario exclusivo; ocupantes en viviendas particulares con piso de tierra; ocupantes en viviendas particulares sin disponibilidad de energía eléctrica; viviendas particulares con algún nivel de hacinamiento; población en localidades con menos de 5,000 habitantes; y población ocupada con ingresos de hasta dos salarios mínimos.
+
+
 ### RIESGO BAJO E ÃNDICE DE MARGINACIÃ“N
 ```{r}
 scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$INDICE_MARG),method = "spearman")
@@ -363,6 +387,7 @@ DESCRIPCIÃ“N
 scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$INDICE_MARG),method = "spearman")
 ```
 DESCRIPCIÃ“N
+
 Row
 ---
 
@@ -377,11 +402,14 @@ DESCRIPCIÃ“N
 scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$INDICE_MARG),method = "spearman")
 ```
 DESCRIPCIÃ“N
+
 CORRELACIÃ“N INCIDENCIA DENGUE 2020/REZAGO
 ====
 
 Row
 ---
+El índice de rezago proporciona el resumen de cuatro carencias sociales de la medición de pobreza del CONEVAL: rezago educativo, acceso a los servicios de salud, acceso a los servicios básicos en la vivienda, la calidad y espacios en la misma, así como activos en el hogar. Sin embargo, no se trata de una medición de pobreza multidimensional, ya que no incorpora los indicadores de ingreso, seguridad social y alimentación. Es de utilidad para analizar la desigualdad de coberturas sociales que subsisten en el territorio nacional. Se emite cada 5 años.
+
 
 ### RIESGO BAJO E ÃNDICE DE REZAGO
 ```{r}
