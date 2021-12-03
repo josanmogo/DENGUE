@@ -83,6 +83,13 @@ Principal {data-icon="fa-home"}
 Row
 ---
 ### Objetivo 
+El dengue ha sido una carga de morbilidad continua en México y un problema de salud pública, el 60% del territorio nacional presenta condiciones favorables para la proliferación del dengue. 
+Para el control efectivo del dengue, se requieren propuestas integrales que incorporen factores ambientales y sociales en el manejo del vector. Las políticas y los programas efectivos, los mecanismos de financiamiento y la cooperación en todos los sectores y la población son esenciales en la erradicación de esta enfermedad.
+El mapeo de la vulnerabilidad al dengue utilizando tecnología geoespacial parece ser un medio eficaz para apoyar a las autoridades de salud pública en el control e intervención de enfermedades.
+
+Objetivo: 
+Representar geográficamente las influencias socioambientales, los factores climáticos y demográficos sobre la vulnerabilidad al dengue, utilizando el índice de rezago, marginación y vulnerabilidad, así como las tasas de incidencia acumulada de casos de dengue para determinar zonas donde exista una correlación positiva en los diferentes municipios de México con el fin de explicar las diferencias en la transmisión del dengue y evaluar los peligros para la salud relacionados con el cambio climático. 
+
 ### metologÃ­a bla bla
 Row
 ---
