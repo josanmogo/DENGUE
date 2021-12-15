@@ -82,16 +82,22 @@ Principal {data-icon="fa-home"}
 =====================================
 Row
 ---
+### Introducción
 El dengue ha sido una carga de morbilidad continua en México y un problema de salud pública, el 60% del territorio nacional presenta condiciones favorables para la proliferación de los casos de dengue. 
 
-Para el control efectivo del dengue, se requieren propuestas integrales que incorporen factores ambientales y sociales en el manejo del vector. Las pol?ticas, los programas efectivos, los mecanismos de financiamiento y la cooperación en todos los sectores y la población son esenciales en la erradicación de esta enfermedad.
+Para el control efectivo del dengue, se requieren propuestas integrales que incorporen factores ambientales y sociales en el manejo del vector. Las políticas, los programas efectivos, los mecanismos de financiamiento y la cooperación en todos los sectores y la población son esenciales en la erradicación de esta enfermedad.
 
 El mapeo de la vulnerabilidad al dengue utilizando tecnología geoespacial parece ser un medio eficaz para apoyar a las autoridades de salud pública en el control e intervención de enfermedades.
 
-### Objetivo 
+Row
+---
+### Objetivo
+
 Representar geográficamente las influencias socioambientales, los factores climáticos y demográficos sobre la vulnerabilidad al dengue, utilizando el Índice de Rezago, Marginación y Vulnerabilidad, así como las tasas de incidencia acumulada de casos de dengue para determinar zonas donde exista una correlación positiva en los diferentes municipios de México con el fin de explicar las diferencias en la transmisión del dengue y evaluar los peligros para la salud relacionados con el cambio climático.
 
-### Metodolog?a
+Row
+---
+### Metodología
 
 Para analizar los datos para visualizar patrones y correlaciones entre las diferentes variables se integró una base general de datos con variables seleccionadas de seis bases de origen: base de datos abiertos de dengue durante el periodo 2020 y 2021 (hasta la semana epidemiológica 30), población del 2020 del censo de población del 2020, proyección de población del 2021, Índice de marginación, Índice de Rezago e Índice de Vulnerabilidad a dengue, todas desagregadas por municipios.
 
@@ -101,15 +107,13 @@ Se produjeron mapas anuales de la incidencia acumulada, mortalidad, índice de p
 
 Se produjeron gráficas de correlación de Spearman con la incidencia acumulada estratificada del dengue en 2020 contra el Índice de rezago, Marginación y Vulnerabilidad al dengue para examinar la fuerza y la dirección de la relación entre las dos variables correspondientes. El valor del coeficiente de correlación puede variar de menos 1 a uno. Mientras mayor sea el valor absoluto del coeficiente, máyor será? la relación entre el comportamiento de las variable.
 
-
-
 Row
 ---
-### Colaboradores
+### Créditos
 DIRECCIÓN GENERAL DE EPIDEMIOLOGÍA
 Dr. José Antonio Montes. Residente de primer año
-Dr. Eduardo Padilla. Residente de primer año
 Dra. Evelin Yolitzi Hernández. Residente de primer año
+Dr. Eduardo Padilla. Residente de primer año
 Mtro. Allan Zambrano
 
 PANORAMA EPIDEMIOLÓGICO DE DENGUE 2020
@@ -119,7 +123,7 @@ PANORAMA EPIDEMIOLÓGICO DE DENGUE 2020
 Row
 ---
 
-### INCIDENCIA ACUMULADA DE DENGUE EN 2020
+### INCIDENCIA ACUMULADA DE DENGUE EN 2020 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 ```{r}
 base_mapeo %>% 
   drop_na(INC_ACUM) %>% 
@@ -129,12 +133,12 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
+
 
 Row
 ---
 
-### TASA DE MORTALIDAD DE DENGUE 2020
+### TASA DE MORTALIDAD DE DENGUE 2020 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 ```{r}
 base_mapeo %>% 
   drop_na(TASA_MORT) %>% 
@@ -144,11 +148,11 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
+
 
 Row
 ---
-### INDICE DE POSITIVIDAD DE DENGUE 2020
+### INDICE DE POSITIVIDAD DE DENGUE 2020 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 ```{r}
 base_mapeo %>% 
   drop_na(PORCENTAJE_POSITIVIDAD) %>% 
@@ -158,7 +162,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
+
 
 PANORAMA SEROLÓGICO DE DENGUE 2020
 ====
@@ -167,7 +171,7 @@ Row
 ---
 
 
-### CASOS DE DENGUEVIRUS 1
+### CASOS DE DENGUEVIRUS 1 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 ```{r}
 base_mapeo %>% 
   drop_na(SERO_1) %>% 
@@ -179,7 +183,7 @@ base_mapeo %>%
 ```
 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
-### CASOS DE DENGUEVIRUS 2
+### CASOS DE DENGUEVIRUS 2 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 ```{r}
 base_mapeo %>% 
   drop_na(SERO_2) %>% 
@@ -189,12 +193,12 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
+
 
 Row
 ---
 
-### CASOS DE DENGUEVIRUS 3
+### CASOS DE DENGUEVIRUS 3 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 ```{r}
 base_mapeo %>% 
   drop_na(SERO_3) %>% 
@@ -204,9 +208,9 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
-### CASOS DE DENGUEVIRUS 4
+
+### CASOS DE DENGUEVIRUS 4 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 ```{r}
 base_mapeo %>% 
   drop_na(SERO_4) %>% 
@@ -216,7 +220,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
+
 
 PANORAMA EPIDEMIOLÓGICO DE DENGUE 2021
 ====
@@ -224,7 +228,7 @@ PANORAMA EPIDEMIOLÓGICO DE DENGUE 2021
 Row
 ---
 
-### INCIDENCIA ACUMULADA DE DENGUE EN 2021
+### INCIDENCIA ACUMULADA DE DENGUE EN 2021 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 ```{r}
 base_mapeo %>% 
   drop_na(INC_ACUM_2021) %>% 
@@ -234,12 +238,12 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
+
 
 Row
 ---
 
-### TASA DE MORTALIDAD DE DENGUE 2021
+### TASA DE MORTALIDAD DE DENGUE 2021 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 ```{r}
 base_mapeo %>% 
   drop_na(TASA_MORT_2021) %>% 
@@ -249,12 +253,12 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
+
 
 Row
 ---
 
-### INDICE DE POSITIVIDAD DE DENGUE 2021
+### INDICE DE POSITIVIDAD DE DENGUE 2021 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 ```{r}
 base_mapeo %>% 
   drop_na(PORCENTAJE_POSITIVIDAD_2021) %>% 
@@ -264,7 +268,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
+
 
 PANORAMA SEROLÓGICO DE DENGUE 2021
 ====
@@ -273,7 +277,7 @@ Row
 ---
 
 
-### CASOS DE DENGUEVIRUS 1
+### CASOS DE DENGUEVIRUS 1 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 ```{r}
 base_mapeo %>% 
   drop_na(SERO_1_2021) %>% 
@@ -283,9 +287,9 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
-### CASOS DE DENGUEVIRUS 2
+
+### CASOS DE DENGUEVIRUS 2 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 ```{r}
 base_mapeo %>% 
   drop_na(SERO_2_2021) %>% 
@@ -295,12 +299,12 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
+
 
 Row
 ---
 
-### CASOS DE DENGUEVIRUS 3
+### CASOS DE DENGUEVIRUS 3 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 ```{r}
 base_mapeo %>% 
   drop_na(SERO_4_2021) %>% 
@@ -310,9 +314,9 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
-### CASOS DE DENGUEVIRUS 4
+
+### CASOS DE DENGUEVIRUS 4 SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 ```{r}
 base_mapeo %>% 
   drop_na(SERO_4_2021) %>% 
@@ -322,17 +326,19 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
+
 
 CORRELACIÓN INCIDENCIA DENGUE 2020/VULNERABILIDAD DENGUE
 ====
-
 Row
 ---
+### Índice de Vulnerabilidad
  
 El Índice de Vulnerabilidad de la Población al Incremento en la Distribución Potencial del Dengue 
 se compone de los indicadores de exposición, sensibilidad y capacidad adaptativa; donde la exposición describe las condiciones que conducen a la supervivencia y transmisión del dengue en el medio ambiente (por ejemplo, precipitaciones y temperatura). La sensibilidad describe la susceptibilidad de una población al dengue debido al potencial de criaderos relacionado con la urbanización y crecimiento poblacional, además de la cercanía a cuerpos de agua, susceptibilidad a inundaciones, asó como la disponibilidad de agua y acumulación de residuos sólidos. La capacidad adaptativa se refiere a la capacidad de prevenir, responder y hacer frente a la enfermedad.
 
+Row
+---
 
 ### RIESGO BAJO Y VULNERABILIAD PARA DENGUE
 
@@ -370,12 +376,13 @@ CORRELACIÓN INCIDENCIA DENGUE 2020/MARGINACIÓN
 
 Row
 ---
-
+### Índice de Marginación
 El Índice de marginación desarrollado por la CONAPO permite identificar, por áreas geográficas, la intensidad de las privaciones y exclusión social de la población, y por tanto, las desventajas relativas que enfrenta una población como producto de su situación geográfica, económica y social, como resultado de falta de acceso a la educación, residencia en viviendas inadecuadas, ingresos monetarios insuficientes y residencia en localidades pequeñas. Se utiliza en México para establecer jerarquías entre las unidades territoriales, ubicándolas dentro de alguno de los cinco intervalos de marginación siguientes, de acuerdo con la Técnica de Estratificación Óptima de Dalenius y Hodges: muy bajo (-1.52944, -1.15143); bajo (-1.15143, -0.39539); medio (-0.39539, -0.01738); alto (-0.01738, 0.73866); y muy alto (0.73866, 2.25073); seg?n la intensidad de las carencias estructurales y, de este modo, ofrece un criterio sólido para priorizar acciones de política social en los distintos niveles de gobierno. No es comparable a nivel internacional. Se calcula cada 5 años. 
 
 Se construye mediante el método de componentes principales, a partir de nueve indicadores de exclusión social expresados en forma de porcentaje: población analfabeta de 15 años o más; población sin primaria completa de 15 años o más; ocupantes en viviendas particulares sin agua entubada; ocupantes en viviendas particulares sin drenaje ni servicio sanitario exclusivo; ocupantes en viviendas particulares con piso de tierra; ocupantes en viviendas particulares sin disponibilidad de energía eléctrica; viviendas particulares con algún nivel de hacinamiento; población en localidades con menos de 5,000 habitantes; y población ocupada con ingresos de hasta dos salarios mínimos.
 
-
+Row
+---
 ### RIESGO BAJO E ÍNDICE DE MARGINACIÓN
 ```{r}
 scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$INDICE_MARG),method = "spearman",title="")
@@ -408,9 +415,11 @@ CORRELACIÓN INCIDENCIA DENGUE 2020/REZAGO
 
 Row
 ---
+### Índice de Rezago
 El Índice de Rezago proporciona el resumen de cuatro carencias sociales de la medición de pobreza del CONEVAL: rezago educativo, acceso a los servicios de salud, acceso a los servicios básicos en la vivienda, la calidad y espacios en la misma, asó como activos en el hogar. Sin embargo, no se trata de una medición de pobreza multidimensional, ya que no incorpora los indicadores de ingreso, seguridad social y alimentación. Es de utilidad para analizar la desigualdad de coberturas sociales que subsisten en el territorio nacional. Se emite cada 5 años.
 
-
+Row
+---
 ### RIESGO BAJO E ÍNDICE DE REZAGO
 ```{r}
 scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$INDICE_REZAGO),method = "spearman",title="")
