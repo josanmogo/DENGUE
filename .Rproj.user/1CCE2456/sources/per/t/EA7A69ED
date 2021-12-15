@@ -3,7 +3,7 @@
     "path": "~/Documents/GitHub/DENGUE/dashboard_prueba.Rmd",
     "project_path": "dashboard_prueba.Rmd",
     "type": "r_markdown",
-    "hash": "3265702336",
+    "hash": "2228121220",
     "contents": "",
     "dirty": false,
     "created": 1637956613661.0,
@@ -11,14 +11,16 @@
     "relative_order": 1,
     "properties": {
         "source_window_id": "",
-        "Source": "Source"
+        "Source": "Source",
+        "cursorPosition": "340,90",
+        "scrollLine": "330"
     },
     "folds": "",
-    "lastKnownWriteTime": 1637956498,
+    "lastKnownWriteTime": 1639526942,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1637956498,
+    "last_content_update": 1639526942850,
     "read_only": false,
     "read_only_alternatives": []
 }

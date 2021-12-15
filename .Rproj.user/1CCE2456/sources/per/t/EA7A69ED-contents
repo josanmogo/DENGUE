@@ -1,6 +1,6 @@
 ---
 title: "Dengue en México"
-author: "EJY"
+author: "EJYA"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
@@ -80,6 +80,36 @@ base_mapeo<-left_join(base_mapeo,shape_file,by="Clave_municipio") %>%
 
 Principal {data-icon="fa-home"}
 =====================================
+Row
+---
+El dengue ha sido una carga de morbilidad continua en M?xico y un problema de salud p?blica, el 60% del territorio nacional presenta condiciones favorables para la proliferaci?n de los casos de dengue. 
+
+Para el control efectivo del dengue, se requieren propuestas integrales que incorporen factores ambientales y sociales en el manejo del vector. Las pol?ticas, los programas efectivos, los mecanismos de financiamiento y la cooperaci?n en todos los sectores y la poblaci?n son esenciales en la erradicaci?n de esta enfermedad.
+
+El mapeo de la vulnerabilidad al dengue utilizando tecnolog?a geoespacial parece ser un medio eficaz para apoyar a las autoridades de salud p?blica en el control e intervenci?n de enfermedades.
+
+### Objetivo 
+Representar geogr?ficamente las influencias socioambientales, los factores clim?ticos y demogr?ficos sobre la vulnerabilidad al dengue, utilizando el ?ndice de rezago, marginaci?n y vulnerabilidad, as? como las tasas de incidencia acumulada de casos de dengue para determinar zonas donde exista una correlaci?n positiva en los diferentes municipios de M?xico con el fin de explicar las diferencias en la transmisi?n del dengue y evaluar los peligros para la salud relacionados con el cambio clim?tico.
+
+### Metodolog?a
+
+Para analizar los datos para visualizar patrones y correlaciones entre las diferentes variables se integr? una base general de datos con variables seleccionadas de seis bases de origen: base de datos abiertos de dengue durante el periodo 2020 y 2021 (hasta la semana epidemiol?gica 30), poblaci?n del 2020 del censo de poblaci?n del 2020, proyecci?n de poblaci?n del 2021, ?ndice de marginaci?n, ?ndice de rezago e ?ndice de vulnerabilidad al dengue, todas desagregadas por municipios.
+
+Se realiz? estratificaci?n de la incidencia acumulada para 2020 con el m?todo Dalenius-Hodges, que consiste en la formaci?n de estratos de manera que la varianza obtenida sea la m?nima al interior de cada estrato y la m?xima entre cada uno de ellos integrando cuatro grupos: riesgo bajo, muy bajo, alto y muy alto. (agregar valores de corte para cada grupo)
+
+Se produjeron mapas anuales de la incidencia acumulada, mortalidad, ?ndice de positividad y casos de acuerdo al serotipo de dengue por municipios.
+
+Se produjeron gr?ficas de correlaci?n de Spearman con la incidencia acumulada estratificada del dengue en 2020 contra el ?ndice de rezago, marginaci?n y vulnerabilidad al dengue para examinar la fuerza y la direcci?n de la relaci?n entre las dos variables correspondientes. El valor del coeficiente de correlaci?n puede variar de ???1 a +1. Mientras mayor sea el valor absoluto del coeficiente, m?s fuerte ser? la relaci?n entre las variables.
+
+
+
+Row
+---
+Fotos de colaboradores
+### Jos? Antonio Montes Gonz?lez. Residente de primer a?o
+### Eduardo Padilla Gonz?lez. Residente de primer a?o
+### Evelin Yolitzi Hern?ndez Olvera. Residente de primer a?o
+### Allan Zambrano
 
 PANORAMA EPIDEMIOLÓGICO DE DENGUE 2020
 ===
@@ -98,7 +128,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 Row
 ---
@@ -113,7 +143,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 Row
 ---
@@ -127,6 +157,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 PANORAMA SEROLÓGICO DE DENGUE 2020
 ====
@@ -145,10 +176,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
-
-Row
----
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 ### CASOS DE DENGUEVIRUS 2
 ```{r}
@@ -160,7 +188,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 Row
 ---
@@ -175,6 +203,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 ### CASOS DE DENGUEVIRUS 4
 ```{r}
@@ -186,13 +215,13 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2020.
 
 PANORAMA EPIDEMIOLÓGICO DE DENGUE 2021
 ====
 
 Row
 ---
-
 
 ### INCIDENCIA ACUMULADA DE DENGUE EN 2021
 ```{r}
@@ -204,7 +233,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
 Row
 ---
@@ -219,7 +248,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
 Row
 ---
@@ -234,6 +263,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
 PANORAMA SEROLÓGICO DE DENGUE 2021
 ====
@@ -252,10 +282,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
-
-Row
----
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
 ### CASOS DE DENGUEVIRUS 2
 ```{r}
@@ -267,7 +294,7 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
 Row
 ---
@@ -282,8 +309,8 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
-Row
----
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
+
 ### CASOS DE DENGUEVIRUS 4
 ```{r}
 base_mapeo %>% 
@@ -294,25 +321,32 @@ base_mapeo %>%
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
+SSA/DGE/DVEET/Datos abiertos de Enfermedades Transmitidas por Vectores (Dengue), 2021.
 
 CORRELACIÓN INCIDENCIA DENGUE 2020/VULNERABILIDAD DENGUE
 ====
 
 Row
 ---
+El ?ndice de vulnerabilidad al cambio clim?tico intenta determinar el grado en que los sistemas pueden verse afectados adversamente por el cambio clim?tico, dependiendo de si ?stos son capaces o incapaces de afrontar los impactos negativos del cambio clim?tico, incluyendo la variabilidad clim?tica y los eventos extremos. 
+
+El ?ndice de vulnerabilidad de la poblaci?n al incremento en la distribuci?n potencial del dengue 
+se compone de los indicadores de exposici?n, sensibilidad y capacidad adaptativa; donde la exposici?n describe las condiciones que conducen a la supervivencia y transmisi?n del dengue en el medio ambiente (por ejemplo, precipitaciones y temperatura). La sensibilidad describe la susceptibilidad de una poblaci?n al dengue debido al potencial de criaderos relacionado con la urbanizaci?n y crecimiento poblacional, adem?s de la cercan?a a cuerpos de agua, susceptibilidad a inundaciones, as? como la disponibilidad de agua y acumulaci?n de residuos s?lidos. La capacidad adaptativa se refiere a la capacidad de prevenir, responder y hacer frente a la enfermedad.
+
 
 ### RIESGO BAJO Y VULNERABILIAD PARA DENGUE
 
 ```{r}
 
-scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$VUL1_E),method = "spearman")
+scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$VUL1_E),method = "spearman",title="")
 ```
-
+DESCRIPCIÓN
 
 ### RIESGO MEDIO Y VULNERABILIAD PARA DENGUE
 ```{r}
-scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$VUL1_E),method = "spearman")
+scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$VUL1_E),method = "spearman",title="")
 ```
+DESCRIPCIÓN
 
 Row
 ---
@@ -320,15 +354,16 @@ Row
 ### RIESGO ALTO Y VULNERABILIAD PARA DENGUE
 ```{r}
 
-scatter.hist((riesgo_alto$INC_ACUM_ESTR),(riesgo_alto$VUL1_E),method = "spearman")
+scatter.hist((riesgo_alto$INC_ACUM_ESTR),(riesgo_alto$VUL1_E),method = "spearman",title="")
 ```
-
+DESCRIPCIÓN
 
 ### RIESGO MUY ALTO Y VULNERABILIAD PARA DENGUE
 ```{r}
 
-scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$VUL1_E),method = "spearman")
+scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$VUL1_E),method = "spearman",title="")
 ```
+DESCRIPCIÓN
 
 CORRELACIÓN INCIDENCIA DENGUE 2020/MARGINACIÓN
 ====
@@ -336,61 +371,71 @@ CORRELACIÓN INCIDENCIA DENGUE 2020/MARGINACIÓN
 Row
 ---
 
+El ?ndice de marginaci?n desarrollado por la CONAPO permite identificar, por ?reas geogr?ficas, la intensidad de las privaciones y exclusi?n social de la poblaci?n, y por tanto, las desventajas relativas que enfrenta una poblaci?n como producto de su situaci?n geogr?fica, econ?mica y social, como resultado de falta de acceso a la educaci?n, residencia en viviendas inadecuadas, ingresos monetarios insuficientes y residencia en localidades peque?as. Se utiliza en M?xico para establecer jerarqu?as entre las unidades territoriales, ubic?ndolas dentro de alguno de los cinco intervalos de marginaci?n siguientes, de acuerdo con la T?cnica de Estratificaci?n ?ptima de Dalenius y Hodges: muy bajo (-1.52944, -1.15143); bajo (-1.15143, -0.39539); medio (-0.39539, -0.01738); alto (-0.01738, 0.73866); y muy alto (0.73866, 2.25073); seg?n la intensidad de las carencias estructurales y, de este modo, ofrece un criterio s?lido para priorizar acciones de pol?tica social en los distintos niveles de gobierno. No es comparable a nivel internacional. Se calcula cada 5 a?os. 
+
+Se construye mediante el m?todo de componentes principales, a partir de nueve indicadores de exclusi?n social expresados en forma de porcentaje: poblaci?n analfabeta de 15 a?os o m?s; poblaci?n sin primaria completa de 15 a?os o m?s; ocupantes en viviendas particulares sin agua entubada; ocupantes en viviendas particulares sin drenaje ni servicio sanitario exclusivo; ocupantes en viviendas particulares con piso de tierra; ocupantes en viviendas particulares sin disponibilidad de energ?a el?ctrica; viviendas particulares con alg?n nivel de hacinamiento; poblaci?n en localidades con menos de 5,000 habitantes; y poblaci?n ocupada con ingresos de hasta dos salarios m?nimos.
+
+
 ### RIESGO BAJO E ÍNDICE DE MARGINACIÓN
 ```{r}
-scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$INDICE_MARG),method = "spearman")
+scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$INDICE_MARG),method = "spearman",title="")
 ```
-
+DESCRIPCIÓN
 
 ### RIESGO MEDIO E ÍNDICE DE MARGINACIÓN
 ```{r}
-scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$INDICE_MARG),method = "spearman")
+scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$INDICE_MARG),method = "spearman",title="")
 ```
+DESCRIPCIÓN
 
 Row
 ---
 
 ### RIESGO ALTO E ÍNDICE DE MARGINACIÓN
 ```{r}
-scatter.hist((riesgo_alto$INC_ACUM_ESTR),(riesgo_alto$INDICE_MARG),method = "spearman")
+scatter.hist((riesgo_alto$INC_ACUM_ESTR),(riesgo_alto$INDICE_MARG),method = "spearman",title="")
 ```
-
+DESCRIPCIÓN
 
 ### RIESGO MUY ALTO E ÍNDICE DE MARGINACIÓN
 ```{r}
-scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$INDICE_MARG),method = "spearman")
+scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$INDICE_MARG),method = "spearman",title="")
 ```
+DESCRIPCIÓN
 
 CORRELACIÓN INCIDENCIA DENGUE 2020/REZAGO
 ====
 
 Row
 ---
+El ?ndice de rezago proporciona el resumen de cuatro carencias sociales de la medici?n de pobreza del CONEVAL: rezago educativo, acceso a los servicios de salud, acceso a los servicios b?sicos en la vivienda, la calidad y espacios en la misma, as? como activos en el hogar. Sin embargo, no se trata de una medici?n de pobreza multidimensional, ya que no incorpora los indicadores de ingreso, seguridad social y alimentaci?n. Es de utilidad para analizar la desigualdad de coberturas sociales que subsisten en el territorio nacional. Se emite cada 5 a?os.
+
 
 ### RIESGO BAJO E ÍNDICE DE REZAGO
 ```{r}
-scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$INDICE_REZAGO),method = "spearman")
+scatter.hist((riesgo_bajo$INC_ACUM_ESTR),(riesgo_bajo$INDICE_REZAGO),method = "spearman",title="")
 ```
-
+DESCRIPCIÓN
 
 ### RIESGO MEDIO E ÍNDICE DE REZAGO
 ```{r}
-scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$INDICE_REZAGO),method = "spearman")
+scatter.hist((riesgo_medio$INC_ACUM_ESTR),(riesgo_medio$INDICE_REZAGO),method = "spearman",title="")
 ```
-
+DESCRIPCIÓN
 Row
 ---
 
 ### RIESGO ALTO E ÍNDICE DE REZAGO
 ```{r}
-scatter.hist((riesgo_alto$INC_ACUM_ESTR),(riesgo_alto$INDICE_REZAGO),method = "spearman")
+scatter.hist((riesgo_alto$INC_ACUM_ESTR),(riesgo_alto$INDICE_REZAGO),method = "spearman",title="")
 ```
-
+DESCRIPCIÓN
 
 ### RIESGO MUY ALTO E ÍNDICE DE REZAGO
 ```{r}
-scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$INDICE_REZAGO),method = "spearman")
+scatter.hist((riesgo_muyalto$INC_ACUM_ESTR),(riesgo_muyalto$INDICE_REZAGO),method = "spearman",title="")
 ```
+DESCRIPCIÓN
 
 <style>
 .navbar {
