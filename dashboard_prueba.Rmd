@@ -72,10 +72,11 @@ riesgo_alto<-base_mapeo %>%
 riesgo_muyalto<-base_mapeo %>% 
   filter(INC_ACUM_GPO=="Muy alta")
 shape_file<-read_sf("VUL_AH_DEN_E.shp") %>%
-  select(Clave_municipio=Clave_Mpo,Nombre_Edo,Nombre_Mpo,geometry)
-base_mapeo<-left_join(base_mapeo,shape_file,by="Clave_municipio") %>% 
+  select(Clave_municipio=Clave_Mpo,Nombre_Edo,Nombre_Mpo,geometry) %>% 
+  rename(NOMBRE_MUN=Nombre_Mpo)
+base_mapeo<-left_join(base_mapeo,shape_file,by="NOMBRE_MUN") %>% 
   drop_na(geometry) %>% 
-  select(Nombre_Mpo, everything())
+  select(NOMBRE_MUN, everything())
 ```
 
 Principal {data-icon="fa-home"}
