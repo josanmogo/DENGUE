@@ -136,7 +136,7 @@ base_tablero_dengue_final<-base_tablero_dengue_final %>%
          DESCARTADOS_TOTALES,PROBABLES_TOTALES,PORCENTAJE_POSITIVIDAD,PROB_ESTIMADOS,TOTAL_ESTIMADOS,PRUEBA_POSITIVA_1A4,
          SERO_1,SERO_2,SERO_3,SERO_4,INC_ACUM,TASA_MORT,REPORTADOS_TOTALES_2021,CONFIRMADOS_TOTALES_2021,DEFUNCIONES_CONF_2021,
          DESCARTADOS_TOTALES_2021,PROBABLES_TOTALES_2021,PORCENTAJE_POSITIVIDAD_2021,PROB_ESTIMADOS_2021,TOTAL_ESTIMADOS_2021,PRUEBA_POSITIVA_1A4_2021,
-         SERO_1_2021,SERO_2_2021,SERO_3_2021,SERO_4_2021,INC_ACUM_2021,TASA_MORT_2021,INDICE_REZAGO,INDICE_MARG,VUL1_E,Clave_municipio=Clave_municipio.x) %>%
+         SERO_1_2021,SERO_2_2021,SERO_3_2021,SERO_4_2021,INC_ACUM_2021,TASA_MORT_2021,INDICE_REZAGO,INDICE_MARG,VUL1_E) %>%
   mutate(TASA_MORT= replace(TASA_MORT,is.na(TASA_MORT),0)) %>% 
   mutate(INC_ACUM= replace(INC_ACUM,is.na(INC_ACUM),0)) %>% 
   mutate(TASA_MORT_2021=replace(TASA_MORT_2021,is.na(TASA_MORT_2021),0)) %>% 
@@ -152,22 +152,20 @@ base_tablero_dengue_final<-base_tablero_dengue_final %>%
 x<-base_tablero_dengue_final$INC_ACUM_ESTR
 y<-base_tablero_dengue_final$TASA_MORT_ESTR
 strata.cumrootf(x, CV=0.05, Ls=4)
-strata.cumrootf(y, CV=0.05, Ls=4)
+strata.cumrootf(y, CV=0.05, Ls=3)
 quantile(base_tablero_dengue_final$TASA_MORT_ESTR)
-
+max()
 base_tablero_dengue_final$INC_ACUM_GPO<-""
-base_tablero_dengue_final$INC_ACUM_GPO[base_tablero_dengue_final$INC_ACUM_ESTR<523.93]<-3
-base_tablero_dengue_final$INC_ACUM_GPO[base_tablero_dengue_final$INC_ACUM_ESTR<252.75]<-2
-base_tablero_dengue_final$INC_ACUM_GPO[base_tablero_dengue_final$INC_ACUM_ESTR<78.44]<-1
-base_tablero_dengue_final$INC_ACUM_GPO[base_tablero_dengue_final$INC_ACUM_ESTR<8.72]<-0
+base_tablero_dengue_final$INC_ACUM_GPO[base_tablero_dengue_final$INC_ACUM_ESTR<1273.44]<-3
+base_tablero_dengue_final$INC_ACUM_GPO[base_tablero_dengue_final$INC_ACUM_ESTR<254.49]<-2
+base_tablero_dengue_final$INC_ACUM_GPO[base_tablero_dengue_final$INC_ACUM_ESTR<84.83]<-1
+base_tablero_dengue_final$INC_ACUM_GPO[base_tablero_dengue_final$INC_ACUM_ESTR<21.21]<-0
 base_tablero_dengue_final$INC_ACUM_GPO<-factor(base_tablero_dengue_final$INC_ACUM_GPO,levels = c(0,1,2,3),labels = c("Baja","Media","Alta","Muy alta")) 
 
 base_tablero_dengue_final$TASA_MORT_GPO<-""
-base_tablero_dengue_final$TASA_MORT_GPO[base_tablero_dengue_final$TASA_MORT_ESTR<82.17]<-3
-base_tablero_dengue_final$TASA_MORT_GPO[base_tablero_dengue_final$TASA_MORT_ESTR<18.73]<-2
-base_tablero_dengue_final$TASA_MORT_GPO[base_tablero_dengue_final$TASA_MORT_ESTR<12.49]<-1
-base_tablero_dengue_final$TASA_MORT_GPO[base_tablero_dengue_final$TASA_MORT_ESTR<6.24]<-0
-base_tablero_dengue_final$TASA_MORT_GPO<-factor(base_tablero_dengue_final$TASA_MORT_GPO,levels = c(0,1,2,3),labels = c("Baja","Media","Alta","Muy alta")) 
+base_tablero_dengue_final$TASA_MORT_GPO[base_tablero_dengue_final$TASA_MORT_ESTR<82.17]<-1
+base_tablero_dengue_final$TASA_MORT_GPO[base_tablero_dengue_final$TASA_MORT_ESTR<2.71]<-0
+base_tablero_dengue_final$TASA_MORT_GPO<-factor(base_tablero_dengue_final$TASA_MORT_GPO,levels = c(0,1),labels = c("Baja","Alta")) 
 
 #WRITE CSV####
 write.csv(base_tablero_dengue_final,"BASE_TABLERO_DENGUE_2020_2021.csv")
