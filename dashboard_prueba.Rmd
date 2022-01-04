@@ -19,36 +19,8 @@ pacman::p_load(
 )
 tmap_mode("view")        
 base_mapeo<-read_csv("BASE_TABLERO_DENGUE_2020_2021.csv",
-                                col_types = cols(X1 = col_skip())) %>% 
-  mutate(INC_ACUM=as.character(INC_ACUM),
-         TASA_MORT=as.character(TASA_MORT),
-         PORCENTAJE_POSITIVIDAD=as.character(PORCENTAJE_POSITIVIDAD),
-         SERO_1=as.character(SERO_1),
-         SERO_2=as.character(SERO_2),
-         SERO_3=as.character(SERO_3),
-         SERO_4=as.character(SERO_4),
-         INC_ACUM_2021=as.character(INC_ACUM_2021),
-         TASA_MORT_2021=as.character(TASA_MORT_2021),
-         PORCENTAJE_POSITIVIDAD_2021=as.character(PORCENTAJE_POSITIVIDAD_2021),
-         SERO_1_2021=as.character(SERO_1_2021),
-         SERO_2_2021=as.character(SERO_2_2021),
-         SERO_3_2021=as.character(SERO_3_2021),
-         SERO_4_2021=as.character(SERO_4_2021)) %>% 
-  mutate(INC_ACUM=gsub("0",NA,INC_ACUM),
-         TASA_MORT=gsub("0",NA,TASA_MORT),
-         PORCENTAJE_POSITIVIDAD=gsub("0",NA,PORCENTAJE_POSITIVIDAD),
-         SERO_1=gsub("0",NA,SERO_1),
-         SERO_2=gsub("0",NA,SERO_2),
-         SERO_3=gsub("0",NA,SERO_3),
-         SERO_4=gsub("0",NA,SERO_4),
-         INC_ACUM_2021=gsub("0",NA,INC_ACUM_2021),
-         TASA_MORT_2021=gsub("0",NA,TASA_MORT_2021),
-         PORCENTAJE_POSITIVIDAD_2021=gsub("0",NA,PORCENTAJE_POSITIVIDAD_2021),
-         SERO_1_2021=gsub("0",NA,SERO_1_2021),
-         SERO_2_2021=gsub("0",NA,SERO_2_2021),
-         SERO_3_2021=gsub("0",NA,SERO_3_2021),
-         SERO_4_2021=gsub("0",NA,SERO_4_2021)) %>% 
-  mutate(INC_ACUM=as.numeric(INC_ACUM),
+                                col_types = cols(X1 = col_skip())) %>%
+    mutate(INC_ACUM=as.numeric(INC_ACUM),
          TASA_MORT=as.numeric(TASA_MORT),
          PORCENTAJE_POSITIVIDAD=as.numeric(PORCENTAJE_POSITIVIDAD),
          SERO_1=as.numeric(SERO_1),
@@ -63,6 +35,7 @@ base_mapeo<-read_csv("BASE_TABLERO_DENGUE_2020_2021.csv",
          SERO_3_2021=as.numeric(SERO_3_2021),
          SERO_4_2021=as.numeric(SERO_4_2021),
          VUL1_E=as.numeric(VUL1_E)) 
+base_mapeo[base_mapeo == 0] <- NA
 riesgo_bajo<-base_mapeo %>% 
   filter(INC_ACUM_GPO=="Baja")
 riesgo_medio<-base_mapeo %>% 

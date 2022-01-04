@@ -16,11 +16,11 @@ funcion_descargar_dengue()
 
 #AGREGAR DATOS DENGUE 2021####
 dengue_2021<-read.csv("dengue_2021.csv") %>% 
-  select(SEXO,EDAD=EDAD_ANOS,ENTIDAD=ENTIDAD_RES,ENTIDAD_ASIG,MUNICIPIO=MUNICIPIO_RES,INDIGENA,HABLA_LENGUA_INDIG,
-         FECHA_SIGN_SINTOMAS,TIPO_PACIENTE,DEFUNCION,RESULTADO_PCR,ESTATUS_CASO) %>% 
+  select(SEXO,EDAD=EDAD_ANOS,ENTIDAD_ASIG,MUNICIPIO_ASIG,INDIGENA,HABLA_LENGUA_INDIG,
+         FECHA_SIGN_SINTOMAS,TIPO_PACIENTE,DEFUNCION,RESULTADO_PCR,ESTATUS_CASO) %>%
+  rename(ENTIDAD=ENTIDAD_ASIG,MUNICIPIO=MUNICIPIO_ASIG) %>% 
   filter(ENTIDAD<=32) %>% 
   mutate(ENTIDAD=as.factor(ENTIDAD)) %>% 
-  mutate(ENTIDAD_ASIG=as.factor(ENTIDAD_ASIG)) %>% 
   mutate(MUNICIPIO=as.factor(MUNICIPIO)) %>% 
   unite(
     col = "IDENTIFICADOR",         # name of the new united column
@@ -149,12 +149,12 @@ base_tablero_dengue_final<-base_tablero_dengue_final %>%
   mutate(TASA_MORT_2021_ESTR=replace(TASA_MORT_2021,is.na(TASA_MORT_2021),0)) %>% 
   mutate(INC_ACUM_2021_ESTR=replace(INC_ACUM_2021,is.na(INC_ACUM_2021),0))
 
-x<-base_tablero_dengue_final$INC_ACUM_ESTR
-y<-base_tablero_dengue_final$TASA_MORT_ESTR
-strata.cumrootf(x, CV=0.05, Ls=4)
-strata.cumrootf(y, CV=0.05, Ls=3)
-quantile(base_tablero_dengue_final$TASA_MORT_ESTR)
-max()
+#x<-base_tablero_dengue_final$INC_ACUM_ESTR
+#y<-base_tablero_dengue_final$TASA_MORT_ESTR
+#strata.cumrootf(x, CV=0.05, Ls=4)
+#strata.cumrootf(y, CV=0.05, Ls=3)
+#quantile(base_tablero_dengue_final$TASA_MORT_ESTR)
+#max()
 base_tablero_dengue_final$INC_ACUM_GPO<-""
 base_tablero_dengue_final$INC_ACUM_GPO[base_tablero_dengue_final$INC_ACUM_ESTR<1273.44]<-3
 base_tablero_dengue_final$INC_ACUM_GPO[base_tablero_dengue_final$INC_ACUM_ESTR<254.49]<-2
