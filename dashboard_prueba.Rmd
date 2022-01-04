@@ -114,7 +114,8 @@ base_mapeo %>%
   drop_na(INC_ACUM) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("INC_ACUM"),alpha=0.9)+
+  tm_polygons(c("INC_ACUM"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -129,7 +130,8 @@ base_mapeo %>%
   drop_na(TASA_MORT) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("TASA_MORT"),alpha=0.9)+
+  tm_polygons(c("TASA_MORT"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -143,7 +145,8 @@ base_mapeo %>%
   drop_na(PORCENTAJE_POSITIVIDAD) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("PORCENTAJE_POSITIVIDAD"),alpha=0.9)+
+  tm_polygons(c("PORCENTAJE_POSITIVIDAD"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -162,7 +165,8 @@ base_mapeo %>%
   drop_na(SERO_1) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("SERO_1"),alpha=0.9)+
+  tm_polygons(c("SERO_1"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -174,7 +178,8 @@ base_mapeo %>%
   drop_na(SERO_2) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("SERO_2"),alpha=0.9)+
+  tm_polygons(c("SERO_2"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -189,7 +194,8 @@ base_mapeo %>%
   drop_na(SERO_3) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("SERO_3"),alpha=0.9)+
+  tm_polygons(c("SERO_3"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -201,7 +207,8 @@ base_mapeo %>%
   drop_na(SERO_4) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("SERO_4"),alpha=0.9)+
+  tm_polygons(c("SERO_4"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -219,7 +226,8 @@ base_mapeo %>%
   drop_na(INC_ACUM_2021) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("INC_ACUM_2021"),alpha=0.9)+
+  tm_polygons(c("INC_ACUM_2021"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -234,7 +242,8 @@ base_mapeo %>%
   drop_na(TASA_MORT_2021) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("TASA_MORT_2021"),alpha=0.9)+
+  tm_polygons(c("TASA_MORT_2021"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -249,7 +258,8 @@ base_mapeo %>%
   drop_na(PORCENTAJE_POSITIVIDAD_2021) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("PORCENTAJE_POSITIVIDAD_2021"),alpha=0.9)+
+  tm_polygons(c("PORCENTAJE_POSITIVIDAD_2021"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -268,7 +278,8 @@ base_mapeo %>%
   drop_na(SERO_1_2021) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("SERO_1_2021"),alpha=0.9)+
+  tm_polygons(c("SERO_1_2021"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -280,7 +291,8 @@ base_mapeo %>%
   drop_na(SERO_2_2021) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("SERO_2_2021"),alpha=0.9)+
+  tm_polygons(c("SERO_2_2021"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -295,7 +307,8 @@ base_mapeo %>%
   drop_na(SERO_4_2021) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("SERO_3_2021"),alpha=0.9)+
+  tm_polygons(c("SERO_3_2021"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
@@ -307,7 +320,8 @@ base_mapeo %>%
   drop_na(SERO_4_2021) %>% 
   st_as_sf() %>% 
   tm_shape() + 
-  tm_polygons(c("SERO_4_2021"),alpha=0.9)+
+  tm_polygons(c("SERO_4_2021"),alpha=0.9,
+              style = "jenks")+
   tm_borders() +
   tm_basemap(server="CartoDB.DarkMatter",alpha=0.9)
 ```
