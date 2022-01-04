@@ -71,10 +71,21 @@ riesgo_alto<-base_mapeo %>%
   filter(INC_ACUM_GPO=="Alta")
 riesgo_muyalto<-base_mapeo %>% 
   filter(INC_ACUM_GPO=="Muy alta")
-shape_file<-read_sf("VUL_AH_DEN_E.shp") %>%
-  select(Clave_municipio=Clave_Mpo,Nombre_Edo,Nombre_Mpo,geometry) %>% 
-  rename(NOMBRE_MUN=Nombre_Mpo)
-base_mapeo<-left_join(base_mapeo,shape_file,by="NOMBRE_MUN") %>% 
+shape_file<-read_sf("muni_2018cw.shp") %>%
+  mutate(CVE_ENT=as.integer(CVE_ENT)) %>% 
+  mutate(CVE_MUN=str_sub(CVE_MUN,start=-3)) %>% 
+  mutate(CVE_MUN=as.integer(CVE_MUN)) %>% 
+  rename(ENTIDAD=CVE_ENT) %>% 
+  rename(MUNICIPIO=CVE_MUN) %>% 
+  unite(
+    col = "IDENTIFICADOR",         # name of the new united column
+    c("ENTIDAD", "MUNICIPIO"), # columns to unite
+    sep = "- ",                   # separator to use in united column
+    remove = F,                # if TRUE, removes input cols from the data frame
+    na.rm = TRUE) %>% 
+  select(-c("ENTIDAD","MUNICIPIO"))
+  
+base_mapeo<-left_join(base_mapeo,shape_file,by="IDENTIFICADOR") %>% 
   drop_na(geometry) %>% 
   select(NOMBRE_MUN, everything())
 ```
